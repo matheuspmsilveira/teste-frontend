@@ -2,14 +2,15 @@ import { useState } from 'react';
 import { Container } from './styles';
 import headerLogo from '../../assets/header-login.svg';
 import { useAuth } from '../../hooks/useAuth';
+import { api } from '../../services/api';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { setAuth } = useAuth();
+  const { singIn } = useAuth();
 
-  function handleSubmit() {
-    setAuth('token');
+  async function handleSubmit() {
+    singIn(email, password);
   }
 
   return (
