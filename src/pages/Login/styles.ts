@@ -7,10 +7,44 @@ export const Container = styled.div`
   width: 100vw;
   height: 100vh;
 
+  position: relative;
+
   padding-left: 115px;
 
   display: flex;
   align-items: center;
+
+  .error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    position: absolute;
+    width: 239px;
+    height: 48px;
+    left: 8%;
+    top: 65%;
+
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(2px);
+
+    border-radius: 4px;
+
+    &:before {
+      content: ' ';
+      position: absolute;
+      bottom: 100%;
+      left: 10%;
+      margin-left: -5px;
+      border-width: 0.5rem;
+      border-style: solid;
+      border-color: rgba(255, 255, 255, 0.4) transparent transparent transparent;
+      backdrop-filter: blur(2px);
+      transform: rotate(180deg);
+    }
+  }
 
   img {
     margin-bottom: 50px;
@@ -40,21 +74,21 @@ export const Container = styled.div`
 
         p {
           font-size: 0.75rem;
-          color: #FFFFFF;
+          color: #ffffff;
           opacity: 0.5;
         }
 
         input {
           background: 0;
           border: 0;
-          color: #FFFFFF;
+          color: #ffffff;
           font-size: 1rem;
 
           &:focus {
             box-shadow: 0 0 0 0;
             border: 0 none;
             outline: 0;
-          } 
+          }
         }
       }
 
@@ -63,16 +97,15 @@ export const Container = styled.div`
         height: 36px;
         margin-top: 4px;
 
-        background: #FFFFFF;
+        background: #ffffff;
         border-radius: 44px;
 
         border: 0;
 
         font-size: 1rem;
         font-weight: 500;
-        color: #B22E6F;
+        color: #b22e6f;
       }
-
     }
   }
-`
+`;

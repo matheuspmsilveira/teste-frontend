@@ -16,23 +16,38 @@ interface AuthProviderProps {
 interface AuthContextData {
   auth: string | null;
   setAuth: Dispatch<SetStateAction<string | null>>;
-  singIn(email: string, password: string): Promise<void>;
+  signIn(email: string, password: string): void;
+  signOut(): void;
+  errors: string | null;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [auth, setAuth] = useState<string | null>(null);
+  const [errors, setErrors] = useState<string | null>(null);
 
-  async function singIn(email: string, password: string) {
-    const response = await api.post('/auth/sign-in', {
-      email,
-      password,
-    });
+  async function signIn(email: string, password: string) {
+    api
+      .post('/auth/sign-in', {
+        email,
+        password,
+      })
+      .then((response) => {
+        setAuth(response.headers.authorization);
+        localStorage.setItem('@IBAuth:token', response.headers.authorization);
+        localStorage.setItem('@IBAuth:user', JSON.stringify(response.data));
+      })
+      .catch((error) => {
+        if (error.response) {
+          setErrors(error.response.data.errors.message);
+        }
+      });
+  }
 
-    setAuth(response.headers.authorization);
-    localStorage.setItem('@IBAuth:token', response.headers.authorization);
-    localStorage.setItem('@IBAuth:user', JSON.stringify(response.data));
+  async function signOut() {
+    setAuth(null);
+    localStorage.clear();
   }
 
   useEffect(() => {
@@ -48,7 +63,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ auth, setAuth, singIn }}>
+    <AuthContext.Provider value={{ auth, setAuth, signIn, signOut, errors }}>
       {children}
     </AuthContext.Provider>
   );

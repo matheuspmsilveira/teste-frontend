@@ -2,19 +2,23 @@ import { useState } from 'react';
 import { Container } from './styles';
 import headerLogo from '../../assets/header-login.svg';
 import { useAuth } from '../../hooks/useAuth';
-import { api } from '../../services/api';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { singIn } = useAuth();
+  const { signIn, errors } = useAuth();
 
   async function handleSubmit() {
-    singIn(email, password);
+    signIn(email, password);
+  }
+
+  function errorMessage() {
+    return <div className="error">{errors}</div>;
   }
 
   return (
     <Container>
+      {errors && errorMessage()}
       <div>
         <img src={headerLogo} alt="Logo Cabeçalho" />
         <form>
