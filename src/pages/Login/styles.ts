@@ -9,10 +9,14 @@ export const Container = styled.div`
 
   position: relative;
 
-  padding-left: 115px;
+  padding-left: 7.19rem;
 
   display: flex;
   align-items: center;
+
+  @media (max-width: 720px) {
+    background-position: -341px;
+  }
 
   .error {
     display: flex;
@@ -22,22 +26,32 @@ export const Container = styled.div`
     color: white;
 
     position: absolute;
-    width: 239px;
-    height: 48px;
-    left: 8%;
-    top: 65%;
+    width: 15rem;
+    height: 3rem;
+    left: 7.19rem;
+    top: 33rem;
 
     background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(0.125rem);
 
-    border-radius: 4px;
+    border-radius: 0.25rem;
+
+    @media (min-width: 1080px) {
+      left: 7.19rem;
+      top: 30rem;
+    }
+
+    @media (min-width: 1400px) {
+      left: 7.19rem;
+      top: 38rem;
+    }
 
     &:before {
       content: ' ';
       position: absolute;
       bottom: 100%;
       left: 10%;
-      margin-left: -5px;
+      margin-left: -0.312rem;
       border-width: 0.5rem;
       border-style: solid;
       border-color: rgba(255, 255, 255, 0.4) transparent transparent transparent;
@@ -47,7 +61,7 @@ export const Container = styled.div`
   }
 
   img {
-    margin-bottom: 50px;
+    margin-bottom: 3.125rem;
   }
 
   form {
@@ -55,22 +69,22 @@ export const Container = styled.div`
       display: flex;
       justify-content: space-between;
 
-      padding: 8px 16px 8px 16px;
+      padding: 0.5rem 1rem 8px 1rem;
 
-      width: 368px;
-      height: 60px;
-      margin-bottom: 16px;
+      width: 23rem;
+      height: 3.75rem;
+      margin-bottom: 1rem;
 
       background: rgba(0, 0, 0, 0.32);
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(0.125rem);
 
-      border-radius: 4px;
+      border-radius: 0.25rem;
 
       div {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 24px;
+        height: 1.5rem;
 
         p {
           font-size: 0.75rem;
@@ -93,12 +107,12 @@ export const Container = styled.div`
       }
 
       button {
-        width: 85px;
-        height: 36px;
-        margin-top: 4px;
+        width: 5.31rem;
+        height: 2.25rem;
+        margin-top: 0.25rem;
 
         background: #ffffff;
-        border-radius: 44px;
+        border-radius: 2.75rem;
 
         border: 0;
 
