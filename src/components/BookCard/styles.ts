@@ -14,6 +14,10 @@ export const Container = styled.div`
   box-shadow: 0px 6px 24px rgba(84, 16, 95, 0.13);
   border-radius: 4px;
 
+  @media (max-width: 720px) {
+    width: 500px;
+  }
+
   img {
     width: 81px;
     height: 122px;

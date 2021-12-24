@@ -13,6 +13,7 @@ export const Container = styled.div`
 
   @media (max-width: 720px) {
     padding: 1rem 2.635rem;
+    width: 100%;
   }
 
   header {
@@ -30,7 +31,8 @@ export const Container = styled.div`
       width: 12.375rem;
 
       @media (max-width: 720px) {
-        width: 15rem;
+        width: 50rem;
+        margin-right: 15rem;
       }
     }
 
@@ -44,14 +46,16 @@ export const Container = styled.div`
         p {
           display: none;
         }
-
-        width: auto;
       }
 
       button {
         background: transparent;
         border: transparent;
       }
+    }
+
+    @media (max-width: 720px) {
+      width: 100%;
     }
   }
 
@@ -65,6 +69,15 @@ export const Container = styled.div`
 
     div {
       margin-top: 1rem;
+    }
+
+    @media (max-width: 720px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      width: 100%;
+      margin-top: 1.625rem;
     }
   }
 
@@ -96,6 +109,10 @@ export const Container = styled.div`
       .backButton {
         transform: rotate(180deg);
       }
+    }
+
+    @media (max-width: 720px) {
+      width: 100%;
     }
   }
 `;

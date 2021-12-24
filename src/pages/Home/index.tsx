@@ -97,17 +97,27 @@ export default function Home() {
       <main>
         {books && books.data.map((book: IBook) => <BookCard book={book} />)}
       </main>
-      <section>
-        {books && <p>{`Página ${books.page} de ${books.totalPages} `}</p>}
-        <div>
-          <button type="button" onClick={backPage}>
-            <img className="backButton" src={nextSvg} alt="Página anterior" />
-          </button>
-          <button type="button" onClick={nextPage}>
-            <img src={nextSvg} alt="Próxima página" />
-          </button>
-        </div>
-      </section>
+      {books && (
+        <section>
+          <p>{`Página ${books.page} de ${books.totalPages} `}</p>
+          <div>
+            <button
+              type="button"
+              onClick={backPage}
+              disabled={books.page === 1}
+            >
+              <img className="backButton" src={nextSvg} alt="Página anterior" />
+            </button>
+            <button
+              type="button"
+              onClick={nextPage}
+              disabled={books.page === books.totalPages}
+            >
+              <img src={nextSvg} alt="Próxima página" />
+            </button>
+          </div>
+        </section>
+      )}
     </Container>
   );
 }
