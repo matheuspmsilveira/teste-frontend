@@ -20,6 +20,8 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
+    width: 1152px;
+
     .headerTitle {
       display: flex;
       justify-content: space-between;
@@ -49,6 +51,50 @@ export const Container = styled.div`
       button {
         background: transparent;
         border: transparent;
+      }
+    }
+  }
+
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    width: 1152px;
+    margin-top: 1.625rem;
+
+    div {
+      margin-top: 1rem;
+    }
+  }
+
+  section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    width: 1152px;
+    margin-top: 1.5rem;
+
+    p {
+      margin-right: 1rem;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 20px;
+
+      color: #333333;
+    }
+
+    button {
+      &:first-child {
+        margin-right: 0.5rem;
+      }
+
+      background: transparent;
+      border: transparent;
+
+      .backButton {
+        transform: rotate(180deg);
       }
     }
   }
