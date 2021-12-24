@@ -17,11 +17,12 @@ interface IBook {
 
 interface BookCardProps {
   book: IBook;
+  handleOpenBookModal(): void;
 }
 
-export function BookCard({ book }: BookCardProps) {
+export function BookCard({ book, handleOpenBookModal }: BookCardProps) {
   return (
-    <Container>
+    <Container onClick={handleOpenBookModal}>
       <img src={book.imageUrl} alt="BookImage" />
       <div className="bookInformation">
         <div>

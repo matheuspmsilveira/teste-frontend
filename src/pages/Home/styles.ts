@@ -67,8 +67,15 @@ export const Container = styled.div`
     width: 1152px;
     margin-top: 1.625rem;
 
-    div {
+    button {
       margin-top: 1rem;
+      border: transparent;
+
+      &:focus {
+        box-shadow: 0px 6px 24px rgba(84, 16, 95, 0.13);
+        border: 0 none;
+        outline: 0;
+      }
     }
 
     @media (max-width: 720px) {

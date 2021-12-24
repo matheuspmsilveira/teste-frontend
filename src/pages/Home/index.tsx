@@ -40,7 +40,11 @@ interface IBooks {
   totalItems: number;
 }
 
-export default function Home() {
+interface HomeProps {
+  onOpenBookModal: () => void;
+}
+
+export default function Home({ onOpenBookModal }: HomeProps) {
   const { signOut, auth } = useAuth();
   const [books, setBooks] = useState<IBooks | null>(null);
   const [user, setUser] = useState<IUser>({} as IUser);
@@ -95,7 +99,10 @@ export default function Home() {
         </div>
       </header>
       <main>
-        {books && books.data.map((book: IBook) => <BookCard book={book} />)}
+        {books &&
+          books.data.map((book: IBook) => (
+            <BookCard book={book} handleOpenBookModal={onOpenBookModal} />
+          ))}
       </main>
       {books && (
         <section>
