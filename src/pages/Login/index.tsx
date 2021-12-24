@@ -6,14 +6,19 @@ import { useAuth } from '../../hooks/useAuth';
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { setAuth } = useAuth();
+  const { signIn, errors } = useAuth();
 
-  function handleSubmit() {
-    setAuth('token');
+  async function handleSubmit() {
+    signIn(email, password);
+  }
+
+  function errorMessage() {
+    return <div className="error">{errors}</div>;
   }
 
   return (
     <Container>
+      {errors && errorMessage()}
       <div>
         <img src={headerLogo} alt="Logo Cabeçalho" />
         <form>

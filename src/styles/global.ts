@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    @media (max-width: 1080px) {
+    @media (max-width: 1400px) {
       font-size: 93.75%;
     }
 
@@ -40,7 +40,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .react-modal-overlay {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
 
     position: fixed;
     top: 0;
@@ -54,18 +55,23 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .react-modal-content {
-    width: 100%;
-    max-width: 576px;
-    background: var(--background);
+    width: 769px;
+    height: 608px;
+    background: white;
     padding: 3rem;
     position: relative;
     border-radius: 0.24rem;
+
+    @media (max-width: 700px) {
+      width: 90%;
+      height: 970px;  
+    }
   }
 
   .react-modal-close {
     position: absolute;
-    right: 1.5rem;
-    top: 1.5rem;
+    right: -15.63rem;
+    top: -1.5rem;
     border: 0;
     background: transparent;
 
