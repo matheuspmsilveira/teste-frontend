@@ -1,26 +1,26 @@
 import styled from 'styled-components';
 
 export const Container = styled.button`
-  width: 272px;
-  height: 160px;
+  width: 17rem;
+  height: 10rem;
 
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
 
-  padding: 19px 16px;
+  padding: 1.19rem 1rem;
 
   background: #ffffff;
-  box-shadow: 0px 6px 24px rgba(84, 16, 95, 0.13);
-  border-radius: 4px;
+  box-shadow: 0px 0.375rem 1.5rem rgba(84, 16, 95, 0.13);
+  border-radius: 0.25rem;
 
   @media (max-width: 720px) {
-    width: 500px;
+    width: 35.71rem;
   }
 
   img {
-    width: 81px;
-    height: 122px;
+    width: 5rem;
+    height: 7.625rem;
 
     filter: drop-shadow(0px 6px 9px rgba(0, 0, 0, 0.15));
   }
@@ -31,23 +31,23 @@ export const Container = styled.button`
     justify-content: space-between;
     text-align: start;
 
-    height: 122px;
+    height: 7.625rem;
 
     div {
       h2 {
-        font-size: 14px;
-        font-weight: 500px;
+        font-size: 0.875rem;
+        font-weight: 31.25rem;
         color: #333333;
       }
 
       h3 {
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 400;
         color: #ab2680;
       }
 
       p {
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 400;
         color: #999999;
       }

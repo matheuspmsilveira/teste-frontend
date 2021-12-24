@@ -15,10 +15,25 @@ interface BookProviderProps {
   children: ReactNode;
 }
 
+interface IBookInfo {
+  id: string;
+  title: string;
+  description: string;
+  authors: string[];
+  pageCount: number;
+  category: string;
+  imageUrl: string;
+  isbn10: string;
+  isbn13: string;
+  language: string;
+  publisher: string;
+  published: number;
+}
+
 interface BookContextData {
   bookId: string | null;
   setBookId: Dispatch<SetStateAction<string | null>>;
-  book: object | null;
+  book: IBookInfo | null;
 }
 
 const BookContext = createContext<BookContextData>({} as BookContextData);
@@ -26,7 +41,7 @@ const BookContext = createContext<BookContextData>({} as BookContextData);
 export function BookProvider({ children }: BookProviderProps) {
   const { auth } = useAuth();
   const [bookId, setBookId] = useState<string | null>(null);
-  const [book, setBook] = useState<object | null>(null);
+  const [book, setBook] = useState<IBookInfo | null>(null);
 
   useEffect(() => {
     if (bookId && auth) {
