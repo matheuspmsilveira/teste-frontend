@@ -1,3 +1,4 @@
+import { useBook } from '../../hooks/useBook';
 import { Container } from './styles';
 
 interface IBook {
@@ -21,8 +22,19 @@ interface BookCardProps {
 }
 
 export function BookCard({ book, handleOpenBookModal }: BookCardProps) {
+  const { setBookId } = useBook();
+
+  function saveBookId() {
+    setBookId(book.id);
+  }
+
   return (
-    <Container onClick={handleOpenBookModal}>
+    <Container
+      onClick={() => {
+        handleOpenBookModal();
+        saveBookId();
+      }}
+    >
       <img src={book.imageUrl} alt="BookImage" />
       <div className="bookInformation">
         <div>

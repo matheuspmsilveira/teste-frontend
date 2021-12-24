@@ -57,11 +57,13 @@ export default function Home({ onOpenBookModal }: HomeProps) {
       if (auth)
         api
           .get('/books', { headers: { Authorization: auth } })
-          .then((response) => setBooks(response.data));
+          .then((response) => setBooks(response.data))
+          .catch((error) => {
+            console.log(error.message);
+            setBooks(mockBooks);
+          });
     }
     loadBooks();
-
-    if (!books) setBooks(mockBooks);
   }, []);
 
   function nextPage() {
